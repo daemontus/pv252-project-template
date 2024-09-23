@@ -116,3 +116,12 @@ jobs:
           name: coverage-total
           path: coverage-total/
           retention-days: 30
+      - name: Prepare coverage report in markdown
+        uses: fingerprintjs/action-coverage-report-md@v2
+        id: coverage
+        with:
+          textReportPath: './coverage-total/text-report.txt'
+      - name: Add coverage report to the job summary
+        run: |
+          echo "## Code Coverage" >> $GITHUB_STEP_SUMMARY
+          echo "${{ steps.coverage.outputs.markdownReport }}" >> $GITHUB_STEP_SUMMARY
