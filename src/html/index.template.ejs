@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title><%= htmlWebpackPlugin.options.title %></title>
+  </head>
+  <body>
+    <div class="uk-container my-class-main">
+      <div class="main-menu">
+        <%= require('./partial/menu.html').default %>
+      </div>      
+      <div class="uk-grid-medium uk-margin-medium-top" uk-grid>        
+        <div class="uk-width-1-3">
+          <div id="site-a" class="uk-card uk-card-body uk-card-default uk-card-hover"></div>
+        </div>              
+        <div class="uk-width-1-3">
+          <div id="site-b" class="uk-card uk-card-body uk-card-default uk-card-hover"></div>
+        </div>
+        <div class="uk-width-1-3">
+          <div class="uk-card uk-card-body uk-card-default uk-card-hover uk-text-center">
+            This image is a static resource resolved by webpack:
+            <img src="<%= require('../img/watman.jpg')%>" alt="This is watman" class="uk-margin-small-top uk-margin-small-bottom">
+            This icon is included as a font: <i class='fa fa-user'></i>
+          </div>        
+        </div>        
+      </div>      
+    </div>    
+  </body>
+</html>

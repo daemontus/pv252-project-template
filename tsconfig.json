@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "noEmit": true,
+    "noImplicitAny": true,
+    "allowJs": true,
+    "allowImportingTsExtensions": true    
+  },
+  "include": [
+    "src/*",
+    "custom.d.ts"
+  ]
+}

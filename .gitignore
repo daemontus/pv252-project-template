@@ -1,0 +1,13 @@
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+
+coverage-ui
+coverage-unit
+coverage-total
+.nyc_output
+
+# macos temp files
+.DS_Store
