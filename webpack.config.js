@@ -8,8 +8,11 @@ module.exports = {
    */
   entry: {
     main: {
-      import: ["./src/entry_main.ts", "./src/css/entry_main.less", "uikit"],
+      import: ["./src/entry_main.ts", "./src/css/entry_main.less", "uikit"],      
     },
+    lazy: {
+      import: ["./src/entry_lazy.ts", "./src/css/entry_lazy.less", "uikit"],
+    }
   },
   /*
     Output is stored in the `dist` folder and contains the "content hash"
@@ -59,6 +62,16 @@ module.exports = {
         test: /\.html$/i,
         loader: "html-loader",
       },
+      {
+        test: /\.tsv$/,
+        loader: 'csv-loader',
+        options: {
+          delimiter: "\t",
+          dynamicTyping: true,
+          header: true,
+          skipEmptyLines: true
+        }
+      }
     ],
   },
   plugins: [
@@ -70,6 +83,14 @@ module.exports = {
       chunks: ["main"],
       filename: "index.html",
       template: "./src/html/index.template.ejs",
+    }),
+    new HtmlWebpackPlugin({
+      title: "PV252 Example project",
+      // If we don't need (or want) to use all entry points,
+      // we can use `chunks` to specify which entry point to use.
+      chunks: ["lazy"],
+      filename: "lazy.html",
+      template: "./src/html/lazy.template.ejs",
     }),
   ],
 };

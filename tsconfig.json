@@ -3,6 +3,7 @@
     "noEmit": true,
     "noImplicitAny": true,
     "allowJs": true,
+    "target": "ES6",
     "allowImportingTsExtensions": true    
   },
   "include": [
