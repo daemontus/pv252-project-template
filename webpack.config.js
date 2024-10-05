@@ -7,12 +7,6 @@ module.exports = {
     Alternatively, these could be included in the corresponding "main" .ts/.js files.
    */
   entry: {
-    site_a: {
-      import: ["./src/entry_site_a.ts", "./src/css/entry_site_a.less", "uikit"],
-    },
-    site_b: {
-      import: ["./src/entry_site_b.ts", "./src/css/entry_site_b.less", "uikit"],
-    },
     main: {
       import: ["./src/entry_main.ts", "./src/css/entry_main.less", "uikit"],
     },
@@ -76,19 +70,6 @@ module.exports = {
       chunks: ["main"],
       filename: "index.html",
       template: "./src/html/index.template.ejs",
-    }),
-    // Generate separate HTML files for the two sites.
-    new HtmlWebpackPlugin({
-      title: "Site A",      
-      chunks: ["site_a"],
-      filename: "site_a.html",
-      template: "./src/html/site_a.template.ejs",
-    }),
-    new HtmlWebpackPlugin({
-      title: "Site B",
-      chunks: ["site_b"],
-      filename: "site_b.html",
-      template: "./src/html/site_b.template.ejs",
     }),
   ],
 };
