@@ -1,7 +1,7 @@
 const template = document.createElement("template");
 template.innerHTML = `
 <style>
-div.list {
+#list {
   height: var(--height);
   width: var(--width);  
   border: var(--border);
@@ -75,6 +75,9 @@ export class LazyList<T> extends HTMLElement {
     this.#listElement.onscroll = () => {
       console.log(this.#listElement.scrollTop);
     };
+
+    // Remove this once you are actually showing some data in the list.
+    this.innerHTML = "<span> Some content </span>"
   }
 
   setData(data: T[]) {
