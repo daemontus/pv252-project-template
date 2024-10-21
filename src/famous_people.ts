@@ -29,15 +29,15 @@ export function renderPerson(person: Person): HTMLElement {
   )! as HTMLTemplateElement;
   const element = template.content.cloneNode(true) as HTMLElement;
 
-  const name = element.querySelector(".person-name");
-  const continent = element.querySelector(".person-continent");
-  const country = element.querySelector(".person-country");
-  const city = element.querySelector(".person-city");
-  const occupation = element.querySelector(".person-occupation");
-  const industry = element.querySelector(".person-industry");
+  const name = element.querySelector(".person-name")!;
+  const continent = element.querySelector(".person-continent")!;
+  const country = element.querySelector(".person-country")!;
+  const city = element.querySelector(".person-city")!;
+  const occupation = element.querySelector(".person-occupation")!;
+  const industry = element.querySelector(".person-industry")!;
   const geo_link =
     element.querySelector<HTMLAnchorElement>(".person-geo-link")!;
-  const birth_year = element.querySelector(".person-year");
+  const birth_year = element.querySelector(".person-year")!;
 
   name.textContent = person.name;
   birth_year.textContent = String(person.birthyear);

@@ -8,11 +8,8 @@ module.exports = {
    */
   entry: {
     main: {
-      import: ["./src/entry_main.ts", "./src/css/entry_main.less", "uikit"],      
+      import: ["./src/entry_main.ts", "./src/counter_example.ts", "./src/css/entry_main.less", "uikit"],      
     },
-    lazy: {
-      import: ["./src/entry_lazy.ts", "./src/css/entry_lazy.less", "uikit"],
-    }
   },
   /*
     Output is stored in the `dist` folder and contains the "content hash"
@@ -31,7 +28,7 @@ module.exports = {
   module: {
     rules: [
       /* Use Babel to convert JavaScript/TypeScript files. */
-      {
+      /*{
         test: /\.(js|ts|jsx|tsx)$/,
         use: {
           loader: "babel-loader",
@@ -39,6 +36,11 @@ module.exports = {
             presets: ["@babel/preset-env"],
           },
         },
+        exclude: /node_modules/,
+      },*/
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
         exclude: /node_modules/,
       },
       /* Use LESS, and then load the result with normal CSS loader. */
@@ -74,6 +76,13 @@ module.exports = {
       }
     ],
   },
+  resolve: {
+    extensions: ['.ts', '.js'],
+    extensionAlias: {
+      ".js": [".ts", ".js"],
+      ".mjs": [".mts", ".mjs"]
+    }
+  },
   plugins: [
     // Generates the default index.html
     new HtmlWebpackPlugin({
@@ -83,14 +92,6 @@ module.exports = {
       chunks: ["main"],
       filename: "index.html",
       template: "./src/html/index.template.ejs",
-    }),
-    new HtmlWebpackPlugin({
-      title: "PV252 Example project",
-      // If we don't need (or want) to use all entry points,
-      // we can use `chunks` to specify which entry point to use.
-      chunks: ["lazy"],
-      filename: "lazy.html",
-      template: "./src/html/lazy.template.ejs",
     }),
   ],
 };

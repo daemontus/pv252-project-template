@@ -1,10 +1,22 @@
 {
   "compilerOptions": {
-    "noEmit": true,
-    "noImplicitAny": true,
-    "allowJs": true,
-    "target": "ES6",
-    "allowImportingTsExtensions": true    
+    "pretty": true,
+    "target": "ES2015",
+    "module": "Node16",
+    "moduleResolution": "Node16",
+    "importHelpers": true,
+    "experimentalDecorators": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "noEmitOnError": true,
+    "strict": true,
+    "outDir": "dist",
+    "rootDir": "src",
+    "lib": [
+      "dom",
+      "esnext"
+    ]
   },
   "include": [
     "src/*",

@@ -2,21 +2,88 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <script type="module" src="https://unpkg.com/@fluentui/web-components"></script>
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body>
     <%= require('./partial/person.html').default %>
-    <div class="uk-container my-class-main">
-      <div class="main-menu">
-        <%= require('./partial/menu.html').default %>
-      </div>      
-      <div class="uk-grid-medium uk-margin-medium-top" uk-grid>        
-        <div class="uk-width-3-3">
-          <h2>Famous People</h2>
-          <div id="naive-list" class="uk-margin-large-bottom">            
+    <hello-world></hello-world>
+
+    <div class="uk-container">
+      <div class="uk-grid-medium" uk-grid>
+        <div class="uk-width-1-2" style="padding: 16px;">
+          <div class="box" style="height: 300px;">
+            <h2 class="box-header">Microsoft Fluent UI</h2>
+            <fluent-breadcrumb>
+              <fluent-breadcrumb-item>Home</fluent-breadcrumb-item>
+              <fluent-breadcrumb-item>Next Level Down</fluent-breadcrumb-item>
+              <fluent-breadcrumb-item>Current Location</fluent-breadcrumb-item>
+            </fluent-breadcrumb>
+            
+            <div style="margin: 16px 8px 16px 8px;">
+              <fluent-checkbox>Did you check this?</fluent-checkbox><br />
+              <fluent-checkbox checked disabled>Is this disabled?</fluent-checkbox><br />
+              <fluent-checkbox checked>Checked by default?</fluent-checkbox>
+            </div>            
+
+            <a target="_blank" href="https://web-components.fluentui.dev/?path=/docs/components-button-button--docs">
+              <fluent-button appearance="accent">Learn more</fluent-button>
+            </a>
           </div>
-        </div>        
-      </div>      
-    </div>    
+        </div>      
+    
+        <div class="uk-width-1-2" style="padding: 16px;">
+          <div class="box" style="height: 300px;">
+            <h2 class="box-header">Counter example</h2>
+            <counter-context>
+              <counter-display style="display: block; margin-bottom: 16px;"></counter-display>
+              <counter-up>Up</counter-up>
+              <counter-down>Down</counter-down>        
+            </counter-context>
+            <div style="height: 32px;"></div>
+            <counter-context>
+              <counter-display style="display: block; margin-bottom: 16px;"></counter-display>
+              <counter-up>Up</counter-up>
+              <counter-down>Down</counter-down>        
+            </counter-context>
+          </div>
+        </div>      
+
+        <div class="uk-width-1-1" style="padding: 16px;">
+          <div class="box">
+            <fluent-card style="padding: 16px; margin-bottom: 16px;">
+              <span style="display: block; margin-bottom: 8px;">Loaded 48/128:</span>
+              <fluent-progress max="128" value="48"></fluent-progress>
+            </fluent-card>
+            <fluent-card style="padding: 16px; margin-bottom: 16px;">
+              <fluent-breadcrumb>
+                <fluent-breadcrumb-item>Continent</fluent-breadcrumb-item>
+                <fluent-breadcrumb-item>Country</fluent-breadcrumb-item>
+                <fluent-breadcrumb-item>City</fluent-breadcrumb-item>
+              </fluent-breadcrumb>
+              <h2 style="margin-top: 0px;">Person Name</h2>
+              <fluent-divider role="separator"></fluent-divider>
+              <p><p>This person was born in YEAR and is/was working as OCCUPATION in the INDUSTRY industry.</p></p>
+              <fluent-divider role="separator" style="margin-bottom: 16px;"></fluent-divider>
+              <a href="https://maps.google.com" target="_blank"><fluent-button appearance="accent">Show on map</fluent-button></a>
+              <fluent-button appearance="outline">Refresh</fluent-button>
+            </fluent-card>
+            <fluent-card style="padding: 16px; margin-bottom: 16px; height: 66px;">
+              <span style="display: inline-block; margin: 4px 16px 4px 16px;">Item failed to load.</span>
+              <fluent-button appearance="accent" style="float: left;">Refesh</fluent-button>
+            </fluent-card>
+            <fluent-skeleton style="height: 66px; padding: 16px; box-sizing: border-box;" shape="rect" shimmer="true">Loading...</fluent-skeleton>
+          </div>          
+        </div>
+        
+        <div class="uk-width-1-1" style="padding: 16px;">
+          <div class="box">
+            <people-context>
+              <people-list></people-list>
+            </people-context>
+          </div>
+        </div>
+      </div>
+    </div>   
   </body>
 </html>

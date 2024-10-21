@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "private": true,
+  "type": "module",
   "scripts": {
     "build-dev": "webpack --mode=development",
     "build-release": "webpack --mode=production",
@@ -15,7 +16,7 @@
     "coverage-merge": "mkdir -p coverage-total && cp ./coverage-ui/coverage-final.json ./coverage-total/ui.json && cp ./coverage-unit/coverage-final.json ./coverage-total/unit.json && npx nyc merge ./coverage-total/ ./coverage-total/coverage-final.json",
     "coverage-merge-report": "mkdir .nyc_output && cp ./coverage-total/coverage-final.json .nyc_output/out.json && nyc report --reporter=text --reporter=html --report-dir=./coverage-total/ && nyc report --reporter=text > ./coverage-total/text-report.txt && rm -r ./.nyc_output",
     "coverage": "npm run test-ui && npm run test-unit && npm run coverage-merge && npm run coverage-merge-report",
-    "clean": "rm -r dist coverage-ui coverage-unit coverage-total .nyc_output playwright-report test-results",    
+    "clean": "rm -r dist coverage-ui coverage-unit coverage-total .nyc_output playwright-report test-results",
     "format": "prettier ./src --write",
     "check-lint": "eslint ./src",
     "check-format": "prettier ./src --check",
@@ -25,6 +26,7 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@babel/plugin-proposal-decorators": "^7.25.7",
     "@babel/preset-env": "^7.25.4",
     "@babel/preset-typescript": "^7.24.7",
     "@eslint/js": "^9.11.0",
@@ -48,13 +50,17 @@
     "nyc": "^17.1.0",
     "prettier": "^3.3.3",
     "style-loader": "^4.0.0",
-    "typescript": "^5.6.0",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.6.3",
     "typescript-eslint": "^8.6.0",
     "webpack": "^5.94.0",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.1.0"
   },
   "dependencies": {
+    "@fluentui/web-components": "^2.6.1",
+    "@microsoft/fast-element": "^2.0.0",
+    "@microsoft/fast-foundation": "^2.49.6",
     "font-awesome": "^4.7.0",
     "uikit": "^3.21.12"
   }
