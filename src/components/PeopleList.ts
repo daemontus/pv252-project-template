@@ -1,6 +1,5 @@
 import { FASTElement, html, repeat } from "@microsoft/fast-element";
 import { PeopleListContext } from "./PeopleListContextElement.js";
-import { PersonElement } from "./PersonElement.js";
 
 export class PeopleList extends FASTElement {
   // Probably will need to access the context state:
@@ -11,22 +10,24 @@ export class PeopleList extends FASTElement {
     super.connectedCallback();
     // This may be the place where you want to add child elements
     // assuming they are not part of the template?
+    for (let i = 0; i < this.data.people.length; i++) {
+      console.log("Item loading:", this.data.people[i].isLoading());
+    }
   }
 }
 
-const personListTemplate = html<PeopleList>` <div class="fa-list">
+const personListTemplate = html<PeopleList>` <fluent-card>
   ${repeat(
     (x) => x.data.people,
-    html<PersonElement>`
+    html`
       <person-element
         person="${(x) => x.person}"
         position="${(_, c) => c.index}"
         style="margin: 1rem"
       />
     `,
-    { recycle: true },
   )}
-</div>`;
+</fluent-card>`;
 
 PeopleList.define({
   name: "people-list",
