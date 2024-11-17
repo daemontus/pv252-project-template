@@ -7,12 +7,8 @@ import {
   when,
 } from "@microsoft/fast-element";
 import { PersonListItem } from "./PersonListItem.js";
-import { PeopleListContext } from "./PeopleListContextElement.js";
 
 export class PersonElement extends FASTElement {
-  @PeopleListContext
-  context = PeopleListContext;
-
   @attr({ converter: nullableNumberConverter })
   position: number = 0;
 
@@ -24,8 +20,8 @@ const okState = html<PersonElement>`
   <person-item person="${(x) => x.person}" />
 `;
 
-const loadingState = html<PersonElement>` <person-item-loading /> `;
-const errorState = html<PersonElement>` <person-item-error /> `;
+const loadingState = html` <person-item-loading /> `;
+const errorState = html` <person-item-error /> `;
 
 const template = html<PersonElement>`
   <div class="box">
