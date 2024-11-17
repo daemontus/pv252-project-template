@@ -57,7 +57,7 @@ const loadingState = html<PersonElement>`
     shimmer="true"
   >
     Loading... </fluent-skeleton
-  >\`;
+  >;
 `;
 
 const errorState = html<PersonElement>` <fluent-card

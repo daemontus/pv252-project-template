@@ -9,8 +9,6 @@ export class PeopleList extends FASTElement {
 
   connectedCallback(): void {
     super.connectedCallback();
-    // This may be the place where you want to add child elements
-    // assuming they are not part of the template?
     for (let i = 0; i < this.data.people.length; i++) {
       console.log("Item loading:", this.data.people[i].isLoading());
     }
