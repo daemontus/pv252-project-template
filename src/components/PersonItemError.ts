@@ -5,11 +5,10 @@ export class PersonItemError extends FASTElement {
   @attr
   position: number = 0;
 
-  @PeopleListContext
-  data = PeopleListContext;
+  @PeopleListContext data!: PeopleListContext;
 
   public refresh() {
-    this.data.initialValue?.refresh(this.position);
+    this.data?.refresh(this.position);
   }
 }
 
