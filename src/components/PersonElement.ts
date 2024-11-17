@@ -17,17 +17,22 @@ export class PersonElement extends FASTElement {
 }
 
 const okState = html<PersonElement>`
-  <person-item person="${(x) => x.person}" />
+  <person-item person="${(x) => x.person!}" />
 `;
 
-const loadingState = html` <person-item-loading /> `;
-const errorState = html` <person-item-error /> `;
+const loadingState = html`
+    <person-item-loading "/>
+`;
+
+const errorState = html<PersonElement>`
+  <person-item-error position="${(x) => x.position}" />
+`;
 
 const template = html<PersonElement>`
   <div class="box">
     ${when((x) => x.person?.isOk(), okState)}
     ${when((x) => x.person?.isLoading(), loadingState)}
-    ${when((x) => x.person?.isError(), errorState)}
+    ${when((x) => x.person?.isError() ?? true, errorState)}
   </div>
 `;
 
