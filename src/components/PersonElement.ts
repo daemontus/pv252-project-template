@@ -52,12 +52,10 @@ const okState = html<PersonElement>`
 
 const loadingState = html<PersonElement>`
   <fluent-skeleton
-    style="height: 66px; padding: 16px; box-sizing: border-box;"
+    style="height: 66px; padding: 16px; box-sizing: border-box; margin-bottom: 16px;"
     shape="rect"
     shimmer="true"
-  >
-    Loading... </fluent-skeleton
-  >;
+  >Loading...</fluent-skeleton>
 `;
 
 const errorState = html<PersonElement>` <fluent-card

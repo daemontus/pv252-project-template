@@ -24,9 +24,7 @@ export class PeopleList extends FASTElement {
   }
 }
 
-const personListTemplate = html<PeopleList>` <fluent-card>
-  <slot></slot>
-</fluent-card>`;
+const personListTemplate = html<PeopleList>`<slot></slot>`;
 
 PeopleList.define({
   name: "people-list",
